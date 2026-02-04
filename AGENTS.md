@@ -48,7 +48,7 @@ After completing the code, ask the user if they want a playground link. Only cal
 
 Use this checklist when picking up the project in a new session to get productive quickly.
 
-- Workspace root: `c:\projects\svelte`
+- Workspace root: `c:\projects\svelte5-demo`
 - Dev server URL: `http://localhost:5173/` (start with `pnpm run dev`)
 
 ### Helpful scripts

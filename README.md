@@ -1,6 +1,6 @@
-# sv
+# svelte5-demo
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Everything you need to build a Svelte 5 demo project, powered by [`sv`](https://github.com/sveltejs/cli).
 
 ## Creating a project
 
@@ -76,5 +76,3 @@ If you're returning to this project or picking it up in a new session, follow th
 5. Notes:
    - Prefer Svelte 5 runes (`$state`, `$props`) and the `#snippet` / `@render` patterns for component composition.
    - Use `static/` for local images to avoid relying on external CDNs during dev.
-
-If you'd like, I can add a small CONTRIBUTING.md with exact PR/branch rules and a short checklist for making changes consistently.

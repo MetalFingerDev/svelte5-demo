@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"start": "pnpm run check && pnpm run format && pnpm run lint && pnpm run build && pnpm run dev -- --open",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",

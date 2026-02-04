@@ -1,0 +1,180 @@
+/* --- Primitive Tokens --- */
+:root {
+	--white: #ffffff;
+	--gray-900: #0a0a0a;
+	--primary-hex: 255, 62, 0;
+
+	--space-4: 1rem;
+	--space-10: 2.5rem;
+	--radius-lg: 12px;
+}
+
+/* --- Semantic Tokens --- */
+:root {
+	--color-bg: var(--white);
+	--color-text: var(--gray-900);
+	--color-brand: rgb(var(--primary-hex));
+	--color-surface: rgba(15, 23, 42, 0.04);
+	--color-border: rgba(15, 23, 42, 0.08);
+	--shadow-card: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark Theme Overrides */
+html[data-theme='dark'] {
+	--color-bg: #0a0a0a;
+	--color-text: #e6eef8;
+	--color-surface: rgba(255, 255, 255, 0.03);
+	--color-border: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Base & Resets --- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#svelte {
+	height: 100%;
+	min-height: 100vh;
+	margin: 0;
+}
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family:
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+}
+
+/* --- Global Interactive States (Design system) --- */
+button {
+	font: inherit;
+	cursor: pointer;
+	border-radius: var(--radius-lg);
+	transition:
+		transform 0.1s ease,
+		box-shadow 0.12s ease,
+		opacity 0.12s ease;
+}
+
+button:active {
+	transform: scale(0.98);
+}
+
+button.primary {
+	background: var(--color-brand);
+	color: white;
+	border: none;
+}
+
+button.ghost {
+	background: transparent;
+	border: 1px solid var(--color-border);
+	color: var(--color-text);
+}
+
+/* Theme toggle minimal shell — visual states handled in tokens */
+.theme-toggle {
+	background: transparent;
+	border: 1px solid var(--color-border);
+	padding: 0.4rem 0.6rem;
+	border-radius: 8px;
+	min-width: 40px;
+	height: 36px;
+	display: inline-grid;
+	place-items: center;
+	font-size: 1rem;
+}
+
+.theme-toggle[aria-pressed='true'] {
+	border-color: var(--color-brand);
+	background: linear-gradient(90deg, rgba(255, 62, 0, 0.12), rgba(255, 62, 0, 0.06));
+}
+
+input[type='search'] {
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	color: var(--color-text);
+	border-radius: var(--radius-lg);
+	transition: border-color 0.2s;
+	padding: 0.5rem 1rem;
+}
+
+input[type='search']:focus {
+	outline: none;
+	border-color: var(--color-brand);
+}
+
+/* Layout helpers */
+main {
+	min-height: 0;
+	display: grid;
+	place-items: center;
+	padding: var(--space-10);
+
+	/* High-quality hero background (below header).
+	   Use absolute CDN URLs so dev server doesn't 404 when the asset isn't emitted locally. */
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
+		url('https://svelte.dev/_app/immutable/assets/svelte-machine-desktop.DyLduhfW.avif');
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/* Mobile fallback: smaller, more compressed image for narrow viewports */
+@media (max-width: 800px) {
+	main {
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
+			url('https://svelte.dev/_app/immutable/assets/svelte-machine-mobile.B0w2rScM.png');
+		background-position: center top;
+		background-size: cover;
+	}
+}
+
+header.main-header {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr; /* Balanced 3-section layout */
+	align-items: center;
+	padding: 0 var(--space-10);
+	height: 64px;
+	background: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.nav-links {
+	display: flex;
+	gap: var(--space-4);
+}
+.nav-links a {
+	text-decoration: none;
+	color: var(--color-text);
+	font-weight: 500;
+}
+
+.header-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--space-4);
+}
+
+/* Card surface default */
+.card {
+	background: var(--color-surface);
+	backdrop-filter: blur(8px);
+	padding: var(--space-10);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-card);
+	border: 1px solid var(--color-border);
+}
